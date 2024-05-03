@@ -10,7 +10,7 @@
     overflow: hidden;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
-    --gradient: linear-gradient(to bottom, #2eadff, #3d83ff, #7e61ff);
+    --gradient: linear-gradient(to bottom, #2eadff, #3d83ff, #7c62f2);
     --color: #32a6ff
 }
 
@@ -52,10 +52,11 @@
 }
 
 .notibody {
-    color: #99999d;
+    color: #39393a;
     padding: 0 1.25rem;
     transition: transform 300ms ease;
     z-index: 5;
+    font-weight: bold;
 }
 
 .notification:hover .notibody {
