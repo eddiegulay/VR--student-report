@@ -8,6 +8,7 @@
     <title>Student Dashboard</title>
     <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="asset/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,7 +18,7 @@
         <div class="row">
             <div class="col-12 d-flex align-items-center my-2">
                 <img src="images/logo.png" style="width: 50px" alt="">
-                <h3 class="ml-5" style="font-weight: lighter;">Student Experiments Report</h3>
+                <h3 class="ml-5" style="font-weight: lighter;">VR Titration Dashboard</h3>
             </div>
         </div>
 
@@ -178,7 +179,71 @@
                             <div class="card-body">
                                 <h4 style="font-weight: lighter; margin-bottom: 10px;">Tutorials</h4>
                                 <div class="row p-3">
-                                    
+                                    <div class="col-md-4 col-lg-3 my-2">
+                                        <div class="video-card">
+                                            <div class="vcard-main">
+                                                <video id="my_video" class="video-js vcard-video" controls preload="auto" data-setup="{}">
+                                                    <source src="videos/videoplayback.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
+                                            <div class="vcard-header">
+                                                <p>Setting Up VR Controllers</p>
+                                            </div>
+                                            <div class="vcard-footer">
+                                                <p>Learn how to prepare VR Controllers straps to enhance grip</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-lg-3 my-2">
+                                        <div class="video-card">
+                                            <div class="vcard-main">
+                                                <video id="my_video" class="video-js vcard-video" controls preload="auto" data-setup="{}">
+                                                    <source src="videos/Oculus Quest Basics Tutorial Part 04_ Navigating in VR.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
+                                            <div class="vcard-header">
+                                                <p>Navigating in VR</p>
+                                            </div>
+                                            <div class="vcard-footer">
+                                                <p>Explore around oculus add on, to find supporting resources</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-lg-3 my-2">
+                                        <div class="video-card">
+                                            <div class="vcard-main">
+                                                <video id="my_video" class="video-js vcard-video" controls preload="auto" data-setup="{}">
+                                                    <source src="videos/Oculus Quest Basics Tutorial Part 05_ How to Cast.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
+                                            <div class="vcard-header">
+                                                <p>How to cast</p>
+                                            </div>
+                                            <div class="vcard-footer">
+                                                <p>Learn how to stream live progress from VR headset to external monitors</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-lg-3 my-2">
+                                        <div class="video-card">
+                                            <div class="vcard-main">
+                                                <video id="my_video" class="video-js vcard-video" controls preload="auto" data-setup="{}">
+                                                    <source src="videos/Oculus Touch - Hand Presence Technology.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
+                                            <div class="vcard-header">
+                                                <p>Exploiting hand prepense gestures</p>
+                                            </div>
+                                            <div class="vcard-footer">
+                                                <p>
+                                                    Learn how to use hand presence technology to interact with VR environment
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -195,6 +260,7 @@
         </footer>
     </div>
 
+    <script src="https://unpkg.com/video.js/dist/video.js"></script>
     <script src="values.js"></script>
 
 </html>

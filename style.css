@@ -5,13 +5,14 @@
     position: relative;
     width: 18rem;
     height: 5rem;
-    background: #ffffff;
+    background: #e4fbff80;
     border-radius: 1rem;
     overflow: hidden;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 16px;
     --gradient: linear-gradient(to bottom, #2eadff, #3d83ff, #7c62f2);
-    --color: #32a6ff
+    --color: #32a6ff;
+    margin-top: 10px;
 }
 
 .notification:before {
@@ -69,7 +70,7 @@
     width: 20rem;
     height: 20rem;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle closest-side at center, white, transparent);
+    background: radial-gradient(circle closest-side at center, rgb(34, 28, 28), transparent);
     opacity: 0;
     transition: opacity 300ms ease;
 }
@@ -173,4 +174,58 @@
 .session-card:hover {
     cursor: pointer;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.video-card {
+    width: 350px;
+    height: auto;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #3F3F40;
+}
+.vcard-video{
+    width: 100%;
+    height: 150px;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+.vcard-header,
+.vcard-footer,
+.vcard-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.vcard-header {
+    justify-content: space-between;
+    margin-left: 15px;
+    color: #000000;
+}
+
+.vcard-header a {
+    font-size: 15px;
+    cursor: pointer;
+    color: #000000
+}
+
+.vcard-main {
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.vcard-main p {
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+.vcard-footer {
+    margin-left: 15px;
+    font-size: 15px;
+    gap: 5px;
+}
+
+.vcard-footer p {
+    color: rgb(0, 0, 0);
 }
