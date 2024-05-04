@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="asset/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link href="asset/vid-js/video-js.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- D3.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 </head>
 
 <style>
@@ -29,6 +32,15 @@
 
     ul li {
         margin-bottom: 10px;
+    }
+
+    /* gauge */
+
+    .chartjs-wrapper {
+        margin: 0 auto;
+        width: 100px;
+        height: auto;
+        padding: 0px;
     }
 </style>
 
@@ -63,20 +75,43 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row p-4">
+                    <div class="col-12 mb-4">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td>Attentiveness</td>
+                                        <td class="text-info">High</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Engagement</td>
+                                        <td class="text-info">High</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Concentration</td>
+                                        <td class="text-info">High</td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- main panel for quick dashboard preview (80% width)-->
             <div class="col-lg-10 mt-4">
                 <!-- Main panel content here -->
                 <div class="row">
-                    <div class="col-md-6 col-lg-5">
+                    <div class="col-md-6 col-lg-5 px-5">
                         <div class="row">
                             <div class="col-12"
                                 style="border-radius: 10px; height: 200px; background: url('images/bg-2.png'); background-position: top; background-size: cover;">
                             </div>
                             <div class="col-12 p-0">
                                 <!-- experiment title -->
-                                <h3 class="text-left fw-lighter my-4">Experiment Title</h3>
+                                <h5 class="text-left fw-lighter my-4">Experiment Title</h5>
                             </div>
                             <div class="col-12 p-0">
                                 <!-- experiment description -->
@@ -111,7 +146,77 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-5">
+                    <div class="col-md-6 col-lg-5 px-5">
+                        <!-- experiment stats -->
+                        <div class="row">
+                            <div class="col-12" style="border-left:2px solid #00000022;">
+                                <div class="card border-0">
+                                    <div class="card-body">
+                                        <h5 class="text-left mb-3">Experiment Stats</h5>
+                                        <div class="row">
+                                            <div class="col-12 mb-4">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th colspan="2">Time management</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Start Time</td>
+                                                                <td class="text-info">04:00pm</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>End Time</td>
+                                                                <td class="text-info">04:30pm <span
+                                                                        class="text-danger mx-2">overtime!!</span> </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Experiment Progress</td>
+                                                                <td class="text-info">In session</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Time Spent</td>
+                                                                <td class="text-info">30 minutes</td>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Data collection (entries obtained, speed per entry, entry accuracy %) -->
+                                        <h5 class="text-left mb-3">Data collection</h5>
+                                        <div class="row">
+                                            <div class="col-12 mb-4">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Entries Obtained</th>
+                                                                <th>Speed per Entry</th>
+                                                                <th>Entry Accuracy</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="text-info">10</td>
+                                                                <td class="text-info">2 seconds</td>
+                                                                <td class="text-info">
+                                                                    <div class="chartjs-wrapper">
+                                                                        <canvas class="chartjs-gauge"></canvas>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,8 +229,110 @@
             </div> -->
         </footer>
     </div>
+</body>
+<script src="asset/chart.js"></script>
 
-    <script src="asset/vid-js/video.js"></script>
-    <script src="values.js"></script>
+<script>
+    // Create chart
+    var ctx = document.getElementsByClassName("chartjs-gauge");
+    var chart = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+            labels: ["Red", "Blue"],
+            datasets: [{
+                label: "Gauge",
+                data: [10, 190],
+                backgroundColor: [
+                    "rgb(255, 99, 132)",
+                    "rgb(54, 162, 235)",
+                    "rgb(255, 205, 86)"
+                ]
+            }]
+        },
+        options: {
+            circumference: Math.PI,
+            rotation: Math.PI,
+            cutoutPercentage: 90, // precent
+            plugins: {
+                datalabels: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    borderColor: '#ffffff',
+                    color: function (context) {
+                        return context.dataset.backgroundColor;
+                    },
+                    font: function (context) {
+                        var w = context.chart.width;
+                        return {
+                            size: w < 512 ? 18 : 20
+                        }
+                    },
+                    align: 'start',
+                    anchor: 'start',
+                    offset: 10,
+                    borderRadius: 4,
+                    borderWidth: 1,
+                    formatter: function (value, context) {
+                        var i = context.dataIndex;
+                        var len = context.dataset.data.length - 1;
+                        if (i == len) {
+                            return null;
+                        }
+                        return value + ' mph';
+                    }
+                }
+            },
+            legend: {
+                display: false
+            },
+            tooltips: {
+                enabled: false
+            }
+        }
+    });
+
+
+    // DEMO Code: not relevant to example
+    function change_gauge(chart, label, data) {
+        chart.data.datasets.forEach((dataset) => {
+            if (dataset.label == label) {
+                dataset.data = data;
+            }
+        });
+        chart.update();
+    }
+
+    var accelerating = false;
+    function accelerate() {
+        accelerating = false;
+        window.setTimeout(function () {
+            change_gauge(chart, "Gauge", [20, 140])
+        }, 1000);
+
+        window.setTimeout(function () {
+            change_gauge(chart, "Gauge", [60, 140])
+        }, 2000);
+
+        window.setTimeout(function () {
+            change_gauge(chart, "Gauge", [100, 100])
+        }, 3000);
+
+        window.setTimeout(function () {
+            change_gauge(chart, "Gauge", [180, 20])
+        }, 4000);
+
+        window.setTimeout(function () {
+            change_gauge(chart, "Gauge", [200, 0])
+        }, 5000);
+    }
+
+    // Start sequence
+    accelerate();
+    window.setInterval(function () {
+        if (!accelerating) {
+            acelerating = true;
+            accelerate();
+        }
+    }, 6000);
+</script>
 
 </html>
