@@ -182,7 +182,7 @@
     height: auto;
     background: #ffffff;
     border-radius: 10px;
-    border: 1px solid #3F3F40;
+    border: 1px solid #eeeeff;
 }
 .vcard-video{
     width: 100%;
@@ -201,7 +201,8 @@
 .vcard-header {
     justify-content: space-between;
     margin-left: 15px;
-    color: #000000;
+    color: #001a43;
+    font-weight: bold;
 }
 
 .vcard-header a {
