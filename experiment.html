@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="icon" href="images/logo.png">
+    <link rel="stylesheet" href="asset/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link href="asset/vid-js/video-js.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- navigation -->
+        <div class="row">
+            <div class="col-12 d-flex align-items-center mt-3">
+                <img src="images/logo.png" style="width: 50px" alt="">
+                <h3 class="ml-5" style="font-weight: lighter;">VR Titration Dashboard</h3>
+            </div>
+        </div>
+
+        <!-- main content -->
+        <div class="row">
+            <!-- side panel for profile & announcements (max 20% width) -->
+            <div class="col-md-2">
+                <!-- Side panel content here -->
+                <div class="col-12">
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="profile"
+                                    class="rounded-circle" width="150">
+                                <div class="mt-3">
+                                    <h4>Edgar Gulay</h4>
+                                    <p class="text-secondary mb-1">Form 4</p>
+                                    <p class="text-muted font-size-sm">St Mary's Secondary School</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- main panel for quick dashboard preview (80% width)-->
+            <div class="col-lg-10">
+                <!-- Main panel content here -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h4 style="font-weight: lighter; margin-bottom: 10px;">Overview</h4>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="notification">
+                                            <div class="notiglow"></div>
+                                            <div class="notiborderglow"></div>
+                                            <div class="notititle">Total Experiments</div>
+                                            <div class="notibody" id="total-experiments">56</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="notification">
+                                            <div class="notiglow"></div>
+                                            <div class="notiborderglow"></div>
+                                            <div class="notititle">Completed Experiments</div>
+                                            <div class="notibody" id="completed-experiments"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="notification">
+                                            <div class="notiglow"></div>
+                                            <div class="notiborderglow"></div>
+                                            <div class="notititle">Pending Experiments</div>
+                                            <div class="notibody" id="pending-experiments"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="notification">
+                                            <div class="notiglow"></div>
+                                            <div class="notiborderglow"></div>
+                                            <div class="notititle">Success Rate</div>
+                                            <div class="notibody" id="success-rate"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="notification">
+                                            <div class="notiglow"></div>
+                                            <div class="notiborderglow"></div>
+                                            <div class="notititle">Average Experiment Duration</div>
+                                            <div class="notibody" id="average-duration"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="notification">
+                                            <div class="notiglow"></div>
+                                            <div class="notiborderglow"></div>
+                                            <div class="notititle">Total Questions</div>
+                                            <div class="notibody" id="total-questions-done"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="notification">
+                                            <div class="notiglow"></div>
+                                            <div class="notiborderglow"></div>
+                                            <div class="notititle">Question Success Rate</div>
+                                            <div class="notibody" id="question-success-rate"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="notification">
+                                            <div class="notiglow"></div>
+                                            <div class="notiborderglow"></div>
+                                            <div class="notititle">Experiment Streak</div>
+                                            <div class="notibody" id="epxeriment-streak"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h4 style="font-weight: lighter; margin-bottom: 10px;">Experiments</h4>
+                                <div class="row p-3">
+                                    <div class="col-md-4 col-lg-3">
+                                        <div class="session-card">
+                                            <div class="img"></div>
+                                            <div class="text">
+                                                <p class="h3 session-title"> Session 01 - Titration Basic </p>
+                                                <p class="p session-time"> 04:00 pm - 05:00 pm </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-lg-3">
+                                        <div class="session-card">
+                                            <div class="img"></div>
+                                            <div class="text">
+                                                <p class="h3 session-title"> Session 02 - Interacting with apparatus </p>
+                                                <p class="p session-time"> 05:00 pm - 06:00 pm </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-lg-3">
+                                        <div class="session-card">
+                                            <div class="img"></div>
+                                            <div class="text">
+                                                <p class="h3 session-title"> Session 03 - Setting up experiment environment </p>
+                                                <p class="p session-time"> 06:00 pm - 07:00 pm </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-lg-3">
+                                        <div class="session-card">
+                                            <div class="img"></div>
+                                            <div class="text">
+                                                <p class="h3 session-title"> Session 04 - End to end titration experiment </p>
+                                                <p class="p session-time"> 07:00 pm - 08:00 pm </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card border-0">
+                            <div class="card-body">
+                                <h4 style="font-weight: lighter; margin-bottom: 10px;">Tutorials</h4>
+                                <div class="row p-3">
+                                    <div class="col-md-4 col-lg-3 my-2">
+                                        <div class="video-card">
+                                            <div class="vcard-main">
+                                                <video id="my_video" class="video-js vcard-video" controls preload="auto" data-setup="{}">
+                                                    <source src="videos/videoplayback.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
+                                            <div class="vcard-header">
+                                                <p>Setting Up VR Controllers</p>
+                                            </div>
+                                            <div class="vcard-footer">
+                                                <p>Learn how to prepare VR Controllers straps to enhance grip</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-lg-3 my-2">
+                                        <div class="video-card">
+                                            <div class="vcard-main">
+                                                <video id="my_video" class="video-js vcard-video" controls preload="auto" data-setup="{}">
+                                                    <source src="videos/Oculus Quest Basics Tutorial Part 04_ Navigating in VR.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
+                                            <div class="vcard-header">
+                                                <p>Navigating in VR</p>
+                                            </div>
+                                            <div class="vcard-footer">
+                                                <p>Explore around oculus add on, to find supporting resources</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-lg-3 my-2">
+                                        <div class="video-card">
+                                            <div class="vcard-main">
+                                                <video id="my_video" class="video-js vcard-video" controls preload="auto" data-setup="{}">
+                                                    <source src="videos/Oculus Quest Basics Tutorial Part 05_ How to Cast.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
+                                            <div class="vcard-header">
+                                                <p>How to cast</p>
+                                            </div>
+                                            <div class="vcard-footer">
+                                                <p>Learn how to stream live progress from VR headset to external monitors</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-lg-3 my-2">
+                                        <div class="video-card">
+                                            <div class="vcard-main">
+                                                <video id="my_video" class="video-js vcard-video" controls preload="auto" data-setup="{}">
+                                                    <source src="videos/Oculus Touch - Hand Presence Technology.mp4" type="video/mp4">
+                                                </video>
+                                            </div>
+                                            <div class="vcard-header">
+                                                <p>Exploiting hand prepense gestures</p>
+                                            </div>
+                                            <div class="vcard-footer">
+                                                <p>
+                                                    Learn how to use hand presence technology to interact with VR environment
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <footer class="footer mt-auto py-3 fixed-bottom">
+            <!-- <div class="container text-center">
+                &copy; <script>document.write(new Date().getFullYear())</script> FYP VR Experiment Simulation
+            </div> -->
+        </footer>
+    </div>
+
+    <script src="asset/vid-js/video.js"></script>
+    <script src="values.js"></script>
+
+</html>
