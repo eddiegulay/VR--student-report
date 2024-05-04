@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="icon" href="images/logo.png">
+    <link rel="stylesheet" href="asset/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    .form-container {
+        width: 400px;
+        background: linear-gradient(#ffffff, #b3b3b307) padding-box,
+            linear-gradient(145deg, transparent 35%, #e81cff26, #40c9ff18) border-box;
+        border: 2px solid transparent;
+        padding: 32px 24px;
+        font-size: 14px;
+        font-family: inherit;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        box-sizing: border-box;
+        border-radius: 16px;
+        background-size: 200% 100%;
+        animation: gradient 5s ease infinite;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .form-container button:active {
+        scale: 0.95;
+    }
+
+    .form-container .form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-container .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .form-container .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #717171;
+        font-weight: 600;
+        font-size: 12px;
+    }
+
+    .form-container .form-group input {
+        width: 100%;
+        padding: 12px 16px;
+        border-radius: 8px;
+        color: #fff;
+        font-family: inherit;
+        background-color: transparent;
+        border: 1px solid #414141;
+    }
+
+    .form-container .form-group textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border-radius: 8px;
+        resize: none;
+        color: #fff;
+        height: 96px;
+        border: 1px solid #414141;
+        background-color: transparent;
+        font-family: inherit;
+    }
+
+    .form-container .form-group input::placeholder {
+        opacity: 0.5;
+    }
+
+    .form-container .form-group input:focus {
+        outline: none;
+        border-color: #e81cff;
+    }
+
+    .form-container .form-group textarea:focus {
+        outline: none;
+        border-color: #e81cff;
+    }
+
+    .form-container .form-submit-btn {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        align-self: flex-start;
+        font-family: inherit;
+        color: #000000;
+        font-weight: 600;
+        width: 40%;
+        background: #d0d0d0;
+        border: 1px solid #d8d8d8;
+        padding: 12px 16px;
+        font-size: inherit;
+        gap: 8px;
+        margin-top: 8px;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .form-container .form-submit-btn:hover {
+        background-color: #8b8b8b;
+        border-color: #d0d0d0;
+    }
+
+    @keyframes animate {
+        0% {
+            filter: hue-rotate(0deg);
+        }
+
+        100% {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    ._container {
+        position: relative;
+        top: -80px;
+        transform: skewY(-20deg);
+        animation: animate 5s linear infinite;
+
+        .cube {
+            position: relative;
+            z-index: 2;
+
+            &:nth-child(2) {
+                z-index: 1;
+                translate: -60px -60px;
+            }
+
+            &:nth-child(3) {
+                z-index: 3;
+                translate: 60px 60px;
+            }
+
+            div {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                translate: calc(-70px * var(--x)) calc(-60px * var(--y));
+
+                span {
+                    position: relative;
+                    display: inline-block;
+                    width: 50px;
+                    height: 50px;
+                    background: #dcdcdc;
+                    z-index: calc(1 * var(--i));
+                    transition: 1.5s;
+
+                    &:hover {
+                        transition: 0s;
+                        background: #ef4149;
+                        filter: drop-shadow(0 0 30px #ef4149);
+
+                        &:before,
+                        &:after {
+                            transition: 0s;
+                            background: #ef4149;
+                        }
+                    }
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        left: -40px;
+                        width: 40px;
+                        height: 100%;
+                        background: #fff;
+                        transform-origin: right;
+                        transform: skewY(45deg);
+                        transition: 1.5s;
+                    }
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        top: -40px;
+                        left: 0px;
+                        width: 100%;
+                        height: 40px;
+                        background: #f2f2f2;
+                        transform-origin: bottom;
+                        transform: skewX(45deg);
+                        transition: 1.5s;
+                    }
+                }
+            }
+        }
+    }
+</style>
+
+<body>
+    <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 align-items-baseline">
+                <div class="_container">
+                    <div class="cube">
+                        <div style="--x:-1; --y:0;">
+                            <span style="--i:3;"></span>
+                            <span style="--i:2;"></span>
+                            <span style="--i:1;"></span>
+                        </div>
+                        <div style="--x:0; --y:0;">
+                            <span style="--i:3;"></span>
+                            <span style="--i:2;"></span>
+                            <span style="--i:1;"></span>
+                        </div>
+                        <div style="--x:1; --y:0;">
+                            <span style="--i:3;"></span>
+                            <span style="--i:2;"></span>
+                            <span style="--i:1;"></span>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div style="--x:-1; --y:0;">
+                            <span style="--i:3;"></span>
+                            <span style="--i:2;"></span>
+                            <span style="--i:1;"></span>
+                        </div>
+                        <div style="--x:0; --y:0;">
+                            <span style="--i:3;"></span>
+                            <span style="--i:2;"></span>
+                            <span style="--i:1;"></span>
+                        </div>
+                        <div style="--x:1; --y:0;">
+                            <span style="--i:3;"></span>
+                            <span style="--i:2;"></span>
+                            <span style="--i:1;"></span>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div style="--x:-1; --y:0;">
+                            <span style="--i:3;"></span>
+                            <span style="--i:2;"></span>
+                            <span style="--i:1;"></span>
+                        </div>
+                        <div style="--x:0; --y:0;">
+                            <span style="--i:3;"></span>
+                            <span style="--i:2;"></span>
+                            <span style="--i:1;"></span>
+                        </div>
+                        <div style="--x:1; --y:0;">
+                            <span style="--i:3;"></span>
+                            <span style="--i:2;"></span>
+                            <span style="--i:1;"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="form-container">
+                    <h1 style="color: rgb(0, 0, 0); font-size: 40px; font-weight: lighter; margin-bottom: 20px;">Authentication</h1>
+                    <form class="form">
+                        <div class="form-group">
+                            <label for="username">Username or Email</label>
+                            <input required="" name="username" id="username" type="text" class="text-black-50">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input required="" name="password" id="password" type="password" class="text-black-50">
+                        </div>
+                        <button type="submit" class="form-submit-btn">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
